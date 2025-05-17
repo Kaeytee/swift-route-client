@@ -61,18 +61,20 @@
 }
 
 /* Sidebar specific styles */
-.sidebar {
-  @apply bg-logistic-DEFAULT text-white;
-}
+@layer components {
+  .sidebar {
+    @apply bg-[#e60000] text-white;
+  }
 
-.sidebar-item {
-  @apply flex items-center gap-3 px-4 py-3 hover:bg-logistic-light transition-colors duration-200;
-}
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 hover:bg-[#ff3333] transition-colors duration-200;
+  }
 
-.sidebar-item.active {
-  @apply bg-logistic-dark border-l-4 border-white;
-}
+  .sidebar-item.active {
+    @apply bg-[#cc0000] border-l-4 border-white;
+  }
 
-.dashboard-card {
-  @apply border rounded-md p-6 flex flex-col items-center justify-center transition-all hover:shadow-md cursor-pointer;
+  .dashboard-card {
+    @apply border rounded-md p-6 flex flex-col items-center justify-center transition-all hover:shadow-md cursor-pointer hover:border-[#e60000];
+  }
 }
