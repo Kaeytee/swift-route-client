@@ -75,6 +75,6 @@
   }
 
   .dashboard-card {
-    @apply border rounded-md p-6 flex flex-col items-center justify-center transition-all hover:shadow-md cursor-pointer hover:border-[#e60000];
+    @apply border rounded-md p-6 flex flex-col items-center justify-center transition-all hover:shadow-md cursor-pointer hover:border-[#e60000] bg-white;
   }
 }

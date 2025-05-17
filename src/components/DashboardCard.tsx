@@ -1,9 +1,9 @@
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 interface DashboardCardProps {
   title: string;
-  icon: ReactNode;
+  icon: string;
   onClick?: () => void;
 }
 
@@ -13,8 +13,8 @@ const DashboardCard: React.FC<DashboardCardProps> = ({ title, icon, onClick }) =
       className="dashboard-card"
       onClick={onClick}
     >
-      <div className="text-4xl mb-4 text-[#e60000]">
-        {icon}
+      <div className="mb-4 flex items-center justify-center h-20">
+        <img src={icon} alt={title} className="h-16 w-16" />
       </div>
       <div className="text-center font-medium">{title}</div>
     </div>
