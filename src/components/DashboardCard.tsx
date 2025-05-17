@@ -9,7 +9,7 @@ interface DashboardCardProps {
 
 const DashboardCard: React.FC<DashboardCardProps> = ({ title, icon, onClick }) => {
   return (
-    <div 
+    <div
       className="dashboard-card"
       onClick={onClick}
     >

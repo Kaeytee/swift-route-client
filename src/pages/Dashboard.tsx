@@ -1,23 +1,22 @@
-
 import React from 'react';
 import DashboardCard from '../components/DashboardCard';
 import { useNavigate } from 'react-router-dom';
 
 // Import images
-import submitShipmentIcon from '/lovable-uploads/b76a9235-b596-44c0-990a-fb18ec1dc364.png';
-import awaitingShipmentsIcon from '/lovable-uploads/cf3b1440-adbb-4bf8-bccf-209fdc9e6582.png';
-import fundWalletIcon from '/lovable-uploads/ca41f0f5-6f47-4b4b-ab1c-2e33c6304372.png';
-import shipmentHistoryIcon from '/lovable-uploads/4817b46d-1c66-4053-8c02-409b95444db0.png';
+import submitShipmentIcon from '../assets/images/submit-shipment.png';
+import awaitingShipmentsIcon from '../assets/images/awaiting-shipments.png';
+import fundWalletIcon from '../assets/images/fund-wallet.png';
+import shipmentHistoryIcon from '../assets/images/shipment-history.png';
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate();
-  
+
   /**
    * Dashboard actions - navigate to respective pages
    */
   const handleCardClick = (actionType: string) => {
     console.log(`Action clicked: ${actionType}`);
-    
+
     switch (actionType) {
       case "submit_shipment":
         navigate("/submit-shipment");
@@ -62,12 +61,12 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="p-4 md:p-6">
+    <div className="p-4 md:p-6 bg-gray-100 dark:bg-gray-800 min-h-screen">
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Welcome</h2>
-        <p className="text-gray-600 text-lg">What would you like to do?</p>
+        <h2 className="text-2xl font-semibold mb-2 dark:text-gray-100">Welcome</h2>
+        <p className="text-gray-600 dark:text-gray-300 text-lg">What would you like to do?</p>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {dashboardCards.map((card, index) => (
           <DashboardCard

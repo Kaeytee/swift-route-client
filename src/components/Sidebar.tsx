@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { 
-  Box, 
-  Clock, 
+import {
+  Box,
+  Clock,
   Settings,
   MessageCircleQuestion,
   Info,
@@ -28,16 +28,16 @@ interface SidebarItemProps {
 }
 
 // Sidebar item component
-const SidebarItem: React.FC<SidebarItemProps> = ({ 
-  icon, 
-  text, 
-  active = false, 
+const SidebarItem: React.FC<SidebarItemProps> = ({
+  icon,
+  text,
+  active = false,
   onClick,
   collapsed = false
 }) => {
   return (
-    <div 
-      className={`sidebar-item ${active ? 'active' : ''}`} 
+    <div
+      className={`sidebar-item ${active ? 'active' : ''}`}
       onClick={onClick}
     >
       <span className="flex items-center justify-center">{icon}</span>
@@ -47,15 +47,15 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 };
 
 // Main sidebar component
-const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({ 
-  isMobile, 
-  toggleSidebar 
+const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
+  isMobile,
+  toggleSidebar
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
   const { theme, setTheme } = useTheme();
-  
+
   // Handler for collapsing/expanding the sidebar
   const toggleCollapse = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -84,10 +84,10 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
     if (collapsed && !isMobile) {
       setCollapsed(false);
     }
-    
+
     // On mobile, close the sidebar after navigation
     if (isMobile) toggleSidebar();
-    
+
     // Navigate to the selected path
     if (path === '/logout') {
       // Handle logout action here
@@ -105,18 +105,18 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
   return (
     <div className={`sidebar flex flex-col h-full ${collapsed ? 'w-16' : 'w-64'} transition-all duration-300`}>
       {/* Sidebar Header with Logo */}
-      <div className="p-4 border-b border-logistic-dark flex justify-between items-center">
+      <div className="p-4 border-b border-navy-light flex justify-between items-center dark:bg-navy-dark">
         {!collapsed && <h1 className="text-2xl font-bold">Logistics.</h1>}
         {!collapsed && (
-          <button 
-            onClick={toggleCollapse} 
+          <button
+            onClick={toggleCollapse}
             className="text-white hover:bg-logistic-dark p-1 rounded transition-colors"
           >
             <ChevronLeft size={20} />
           </button>
         )}
         {collapsed && (
-          <button 
+          <button
             onClick={toggleCollapse}
             className="mx-auto text-white hover:bg-logistic-dark p-1 rounded transition-colors"
           >
@@ -126,7 +126,7 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
       </div>
 
       {/* Navigation Links */}
-      <div className="flex-grow">
+      <div className="flex-grow dark:bg-navy-dark">
         {navItems.map((item) => (
           <SidebarItem
             key={item.text}
@@ -140,24 +140,24 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
       </div>
 
       {/* Theme Switcher */}
-      <div className="px-4 py-3 border-t border-logistic-dark">
+      <div className="px-4 py-3 border-t border-navy-light dark:bg-navy-dark">
         {!collapsed && <p className="text-sm text-white/70 mb-2">Theme</p>}
         <div className={`flex ${collapsed ? 'flex-col' : ''} gap-2`}>
-          <button 
+          <button
             onClick={() => handleThemeChange('light')}
             className={`p-2 rounded ${theme === 'light' ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}
             title="Light Mode"
           >
             <Sun size={18} className="text-white" />
           </button>
-          <button 
+          <button
             onClick={() => handleThemeChange('dark')}
             className={`p-2 rounded ${theme === 'dark' ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}
             title="Dark Mode"
           >
             <Moon size={18} className="text-white" />
           </button>
-          <button 
+          <button
             onClick={() => handleThemeChange('system')}
             className={`p-2 rounded ${theme === 'system' ? 'bg-white/20' : 'hover:bg-white/10'} transition-colors`}
             title="System Theme"
@@ -168,7 +168,7 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
       </div>
 
       {/* Footer Links */}
-      <div className="mt-auto border-t border-logistic-dark">
+      <div className="mt-auto border-t border-navy-light dark:bg-navy-dark">
         {footerItems.map((item) => (
           <SidebarItem
             key={item.text}
