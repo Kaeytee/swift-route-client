@@ -1,6 +1,7 @@
 
 import React from 'react';
 import DashboardCard from '../components/DashboardCard';
+import { useNavigate } from 'react-router-dom';
 
 // Import images
 import submitShipmentIcon from '/lovable-uploads/b76a9235-b596-44c0-990a-fb18ec1dc364.png';
@@ -9,20 +10,31 @@ import fundWalletIcon from '/lovable-uploads/ca41f0f5-6f47-4b4b-ab1c-2e33c630437
 import shipmentHistoryIcon from '/lovable-uploads/4817b46d-1c66-4053-8c02-409b95444db0.png';
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
+  
   /**
-   * Dashboard actions - you can replace these with actual navigation or functionality
-   * Each action would typically trigger navigation or open modals
+   * Dashboard actions - navigate to respective pages
    */
   const handleCardClick = (actionType: string) => {
     console.log(`Action clicked: ${actionType}`);
     
-    /**
-     * TODO: Implement proper action handlers
-     * Examples:
-     * - Navigate to specific page
-     * - Open a modal for data entry
-     * - Fetch data from API
-     */
+    switch (actionType) {
+      case "submit_shipment":
+        navigate("/submit-shipment");
+        break;
+      case "awaiting_shipments":
+        navigate("/awaiting-shipments");
+        break;
+      case "fund_wallet":
+        // Placeholder for fund wallet functionality
+        console.log("Fund wallet functionality will be implemented here");
+        break;
+      case "shipment_history":
+        navigate("/shipment-history");
+        break;
+      default:
+        break;
+    }
   };
 
   // Dashboard card configuration

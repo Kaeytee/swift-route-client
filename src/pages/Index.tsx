@@ -2,12 +2,15 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import Dashboard from './Dashboard';
+import { ThemeProvider } from '@/hooks/useTheme';
 
 const Index = () => {
   return (
-    <Layout title="Dashboard">
-      <Dashboard />
-    </Layout>
+    <ThemeProvider>
+      <Layout title="Dashboard">
+        <Dashboard />
+      </Layout>
+    </ThemeProvider>
   );
 };
 
