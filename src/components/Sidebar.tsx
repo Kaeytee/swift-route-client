@@ -105,7 +105,7 @@ const Sidebar: React.FC<{ isMobile: boolean; toggleSidebar: () => void }> = ({
   return (
     <div className={`sidebar flex flex-col h-full ${collapsed ? 'w-16' : 'w-64'} transition-all duration-300`}>
       {/* Sidebar Header with Logo */}
-      <div className="p-4 border-b border-navy-light flex justify-between mb-2 pb-8 items-center dark:bg-navy-dark">
+      <div className="p-4 border-b border-navy-light flex justify-between  pb-8 items-center dark:bg-navy-dark">
         {!collapsed && <h1 className="text-2xl font-bold">Logistics.</h1>}
         {!collapsed && (
           <button
