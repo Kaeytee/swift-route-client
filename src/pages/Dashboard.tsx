@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
         <p className="text-gray-600 dark:text-gray-300 text-lg">What would you like to do?</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {dashboardCards.map((card, index) => (
           <DashboardCard
             key={index}
